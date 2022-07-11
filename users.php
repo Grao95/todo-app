@@ -2,32 +2,19 @@
 require_once("./pdo.php");
 
 if(isset($_POST["name"]) && isset($_POST["password"])){
-    $sql= "INSERT INTO users (name, password) VALUE (:name, :password)";
-
-
-    // $stmt= $pdo->prepare($sql);
-
-    // $stmt->execute([
-    //     ":name" => $_POST["name"],
-    //     ":password" => $_POST["password"]
-    // ]);
-}
-
-if(isset($_POST["edit"]) && isset($_POST["user_id"])){
-    header("Location: ./edit.php?user_id=" . urlencode($_POST["user_id"]));
-  return;
-}
-
-if(isset($_POST["delete"]) && isset($_POST["user_id"])){
-    $sql= "DELETE FROM users WHERE user_id= :id";
+    $sql= "INSERT INTO users (name, password, user_id) VALUE (:name, :password, user_id)";
 
 
     $stmt= $pdo->prepare($sql);
 
     $stmt->execute([
-        ":id" => $_POST["user_id"]
+        ":name" => $_POST["name"],
+        ":password" => $_POST["password"],
+        ":user_id" => $_POST["user_id"]
     ]);
 }
+
+
 
 ?>
 
@@ -41,13 +28,6 @@ if(isset($_POST["delete"]) && isset($_POST["user_id"])){
   <title>Document</title>
 </head>
 
-<body>
-  <?php
-  echo "<table border='1'>";
-
-  echo "</table>";
-  ?>
-  
-</body>
+<body></body>
 
 </html>
