@@ -1,18 +1,18 @@
 <?php
 require_once("./pdo.php");
 
-if(isset($_POST["name"]) && isset($_POST["password"])){
-    $sql= "INSERT INTO users (name, password, user_id) VALUE (:name, :password, user_id)";
+// if(isset($_POST["name"]) && isset($_POST["password"])){
+//     $sql= "INSERT INTO users (name, password, user_id) VALUES (:name, :password, user_id)";
 
 
-    $stmt= $pdo->prepare($sql);
+//     // $stmt= $pdo->prepare($sql);
 
-    $stmt->execute([
-        ":name" => $_POST["name"],
-        ":password" => $_POST["password"],
-        ":user_id" => $_POST["user_id"]
-    ]);
-}
+//     // $stmt->execute([
+//     //     ":name" => $_POST["name"],
+//     //     ":password" => $_POST["password"],
+//     //     ":user_id" => $_POST["user_id"]
+//     // ]);
+// }
 
 
 
